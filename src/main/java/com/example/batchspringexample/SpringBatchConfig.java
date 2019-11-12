@@ -35,6 +35,7 @@ public class SpringBatchConfig {
     @Autowired
     private ItemProcessor<BankTransaction, BankTransaction> bankTransactionItemProcessor;
 
+    @Bean
     public Job bankJob(){
         Step step1 = stepBuilderFactory.get("step-load-data")
                 .<BankTransaction, BankTransaction>chunk(100)
