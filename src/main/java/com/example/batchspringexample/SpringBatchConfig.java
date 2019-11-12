@@ -68,7 +68,7 @@ public class SpringBatchConfig {
         DelimitedLineTokenizer lineTokenizer = new DelimitedLineTokenizer();
         lineTokenizer.setDelimiter(",");
         lineTokenizer.setStrict(false);
-        lineTokenizer.setNames("id", "accountID", "strDate", "transactionType", "amount");
+        lineTokenizer.setNames("id", "accountID", "strTransactionDate", "transactionType", "amount");
         lineMapper.setLineTokenizer(lineTokenizer);
         BeanWrapperFieldSetMapper<BankTransaction> fieldSetMapper = new BeanWrapperFieldSetMapper<>();
         fieldSetMapper.setTargetType(BankTransaction.class);

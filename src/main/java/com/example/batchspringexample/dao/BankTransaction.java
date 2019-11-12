@@ -3,6 +3,7 @@ package com.example.batchspringexample.dao;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -22,6 +23,8 @@ public class BankTransaction {
 
     @Transient //not persist this field in db
     private String strTransactionDate;
+
+    private String transactionType;
 
     private double amount;
 }
