@@ -66,12 +66,12 @@ public class SpringBatchConfig {
     }
 
     @Bean
-    public ItemProcessor<BankTransaction, BankTransaction> itemProcessor1(){
+    public BankTransactionItemProcessor itemProcessor1(){
         return new BankTransactionItemProcessor();
     }
 
     @Bean
-    public ItemProcessor<BankTransaction, BankTransaction> itemProcessor2(){
+    public BankTransactionItemAnalyticsProcessor itemProcessor2(){
         return new BankTransactionItemAnalyticsProcessor();
     }
 

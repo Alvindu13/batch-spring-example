@@ -1,5 +1,6 @@
 package com.example.batchspringexample.web;
 
+import com.example.batchspringexample.BankTransactionItemAnalyticsProcessor;
 import org.springframework.batch.core.*;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +12,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class BankRestController {
+public class JobRestController {
 
     @Autowired
     private JobLauncher jobLauncher;
     @Autowired
     private Job job;
+    @Autowired
+    private BankTransactionItemAnalyticsProcessor analyticsProcessor;
 
     @GetMapping("/startJob")
     public BatchStatus load() throws Exception{
@@ -30,6 +33,13 @@ public class BankRestController {
         return jobExecution.getStatus();
     }
 
+    @GetMapping("/analytics")
+    public Map<String, Double> analytics(){
+        Map<String, Double> map = new HashMap<>();
+        map.put("totalCredit", analyticsProcessor.getTotalCredit());
+        map.put("totalDebit", analyticsProcessor.getTotalDebit());
+        return map;
+    }
 
 
 }
