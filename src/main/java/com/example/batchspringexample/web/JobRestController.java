@@ -4,9 +4,9 @@ import com.example.batchspringexample.BankTransactionItemAnalyticsProcessor;
 import org.springframework.batch.core.*;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,6 +40,4 @@ public class JobRestController {
         map.put("totalDebit", analyticsProcessor.getTotalDebit());
         return map;
     }
-
-
 }
